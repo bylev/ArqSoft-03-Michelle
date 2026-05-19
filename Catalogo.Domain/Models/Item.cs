@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Catalogo.Domain.Models
+namespace CatalogoApp.Domain.Models
 {
-    internal class Item
+    public class Item
     {
         public int Id { get; set; }
         public string Titulo { get; set; } = string.Empty;

@@ -1,4 +1,4 @@
-﻿using Catalogo.Domain.Models;
+﻿using CatalogoApp.Domain.Models;
 
 
 namespace CatalogoApp.Domain.Interfaces

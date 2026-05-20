@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Deb\u00ED tirar m\u00E1s fotos",
+    "Genero": "Urbana",
+    "Ano": 2025,
+    "Formato": "Digital",
+    "Artista": "Bad bunny"
+  },
+  {
+    "Id": 2,
+    "Nombre": "Guts",
+    "Genero": "Pop",
+    "Ano": 2021,
+    "Formato": "Vinilo",
+    "Artista": "Olivia Rodrigo"
+  }
+]

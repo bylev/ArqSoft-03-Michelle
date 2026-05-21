@@ -28,18 +28,14 @@ namespace Catalogo.Infrastructure.Repositories
             }
         }
 
-        /// <summary>
-        /// Obtiene todos los comentarios de un ítem específico
-        /// </summary>
+        
         public List<Comentario> ObtenerPorItemId(int itemId)
         {
             var comentarios = ObtenerTodos();
             return comentarios.Where(c => c.ItemId == itemId).ToList();
         }
 
-        /// <summary>
-        /// Obtiene todos los comentarios
-        /// </summary>
+     
         public List<Comentario> ObtenerTodos()
         {
             if (!File.Exists(_filePath))
@@ -57,18 +53,14 @@ namespace Catalogo.Infrastructure.Repositories
             }
         }
 
-        /// <summary>
-        /// Obtiene un comentario por su ID
-        /// </summary>
+      
         public Comentario? ObtenerPorId(int id)
         {
             var comentarios = ObtenerTodos();
             return comentarios.FirstOrDefault(c => c.Id == id);
         }
 
-        /// <summary>
-        /// Agrega un nuevo comentario
-        /// </summary>
+    
         public bool Agregar(Comentario comentario)
         {
             try
@@ -90,9 +82,6 @@ namespace Catalogo.Infrastructure.Repositories
             }
         }
 
-        /// <summary>
-        /// Elimina un comentario por su ID
-        /// </summary>
         public bool Eliminar(int id)
         {
             try
@@ -114,9 +103,7 @@ namespace Catalogo.Infrastructure.Repositories
             }
         }
 
-        /// <summary>
-        /// Obtiene el promedio de rating de un ítem
-        /// </summary>
+      
         public double ObtenerPromedioRating(int itemId)
         {
             var comentarios = ObtenerPorItemId(itemId);
@@ -127,9 +114,7 @@ namespace Catalogo.Infrastructure.Repositories
             return comentarios.Average(c => c.Rating);
         }
 
-        /// <summary>
-        /// Guarda la lista de comentarios en el archivo JSON
-        /// </summary>
+   
         private void GuardarComentarios(List<Comentario> comentarios)
         {
             try

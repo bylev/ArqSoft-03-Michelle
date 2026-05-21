@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var jsonPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "Item.json");
 var usuariosPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "Usuarios.json");
+var comentariosPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "Comentarios.json");
 
 // Registrar el repositorio JSON como implementación ItemRepository
 builder.Services.AddSingleton<IItemRepository>(
@@ -24,11 +25,19 @@ builder.Services.AddSingleton<IUsuarioRepository>(
      new JsonUsuarioRepository(usuariosPath)
 );
 
+// Registrar el repositorio de Comentarios
+builder.Services.AddSingleton<IComentarioRepository>(
+     new JsonComentarioRepository(comentariosPath)
+);
+
 // Registrar el servicio de Application
 builder.Services.AddScoped<ItemService>();
 
 // Registrar el servicio de Usuarios
 builder.Services.AddScoped<UsuarioService>();
+
+// Registrar el servicio de Comentarios
+builder.Services.AddScoped<ComentarioService>();
 
 // Registrar autorización
 builder.Services.AddAuthorization();

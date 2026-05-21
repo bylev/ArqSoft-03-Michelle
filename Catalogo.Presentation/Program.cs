@@ -2,6 +2,9 @@ using CatalogoApp.Application.Services;
 using CatalogoApp.Infrastructure.Repositories;
 using CatalogoApp.Domain.Models;
 using CatalogoApp.Domain.Interfaces;
+using Catalogo.Application.Services;
+using Catalogo.Domain.Interfaces;
+using Catalogo.Infrastructure.Repositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,17 +12,34 @@ var builder = WebApplication.CreateBuilder(args);
 // Ruta del archivo JSON — se guarda en la carpeta "data" del proyecto
 
 var jsonPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "Item.json");
+var usuariosPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "Usuarios.json");
 
 // Registrar el repositorio JSON como implementación ItemRepository
 builder.Services.AddSingleton<IItemRepository>(
      new JsonItemRepository(jsonPath)
 );
 
+// Registrar el repositorio de Usuarios
+builder.Services.AddSingleton<IUsuarioRepository>(
+     new JsonUsuarioRepository(usuariosPath)
+);
+
 // Registrar el servicio de Application
 builder.Services.AddScoped<ItemService>();
 
+// Registrar el servicio de Usuarios
+builder.Services.AddScoped<UsuarioService>();
+
 // Registrar autorización
 builder.Services.AddAuthorization();
+
+// Registrar sesiones
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // Registrar servicios MVC
 builder.Services.AddControllersWithViews();
@@ -41,6 +61,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection(); 
 app.UseRouting();
 
+// Usar sesiones
+app.UseSession();
+
 app.UseAuthorization();
 
 app.MapStaticAssets();
@@ -53,5 +76,5 @@ app.MapControllerRoute(
 
     .WithStaticAssets();
 
-
+app.Run();
 app.Run();

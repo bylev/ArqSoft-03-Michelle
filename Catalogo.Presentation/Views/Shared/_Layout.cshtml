@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -37,6 +38,32 @@
                                 Privacidad
                             </a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        @if (string.IsNullOrEmpty(Context.Session.GetString("usuarioNombre")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link nav-custom" asp-area="" asp-controller="Auth" asp-action="Login">
+                                    Login
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-custom" asp-area="" asp-controller="Auth" asp-action="Registro">
+                                    Registro
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @Context.Session.GetString("usuarioNombre")
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" asp-controller="Auth" asp-action="Logout">Salir</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

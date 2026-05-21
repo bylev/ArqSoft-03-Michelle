@@ -1,3 +1,9 @@
-{
-  "usuarios": []
-}
+[
+  {
+    "Id": 1,
+    "UniqueNombreUsuario": "bylev",
+    "UniqueEmail": "cgmichelle01@gmail.com",
+    "PasswordHash": "$2b$10$upNec7P3aEk6AtDhAtQkQeNhKDlmC2Bf6ex71Jjcomq7iVKESRZVW",
+    "FechaRegistro": "2026-05-20T21:37:02.9777548-06:00"
+  }
+]

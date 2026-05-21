@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "Id": 1,
+    "ItemId": 1,
+    "NombreUsuario": "bylev",
+    "Texto": "Un \u00E1lbum extraordinario. De verdad si tienen posibilidad de escucharlo en vivo, haganlo!",
+    "Rating": 5,
+    "Fecha": "2026-05-20T22:04:30.500244-06:00"
+  },
+  {
+    "Id": 2,
+    "ItemId": 2,
+    "NombreUsuario": "bylev",
+    "Texto": "El mejor \u00E1lbum de Olivia hasta ahora! Mi canci\u00F3n fav es Obsessed",
+    "Rating": 5,
+    "Fecha": "2026-05-20T22:05:38.2182243-06:00"
+  },
+  {
+    "Id": 3,
+    "ItemId": 3,
+    "NombreUsuario": "bylev",
+    "Texto": "Me gusta el \u00E1lbum pero mi favorito siempre ser\u00E1 K23",
+    "Rating": 3,
+    "Fecha": "2026-05-20T22:15:08.4607102-06:00"
+  },
+  {
+    "Id": 4,
+    "ItemId": 4,
+    "NombreUsuario": "bylev",
+    "Texto": "Albumes de los god, la mejor decisi\u00F3n de la doble P!",
+    "Rating": 4,
+    "Fecha": "2026-05-20T22:15:42.3099171-06:00"
+  },
+  {
+    "Id": 5,
+    "ItemId": 5,
+    "NombreUsuario": "bylev",
+    "Texto": "A mi gusto han tenido mejores albumes pero me gustaron sus canciones.",
+    "Rating": 4,
+    "Fecha": "2026-05-20T22:16:07.6498126-06:00"
+  },
+  {
+    "Id": 6,
+    "ItemId": 4,
+    "NombreUsuario": "epinki",
+    "Texto": "me aprendi el album por los trends de tiktok",
+    "Rating": 5,
+    "Fecha": "2026-05-20T22:17:16.981017-06:00"
+  },
+  {
+    "Id": 7,
+    "ItemId": 5,
+    "NombreUsuario": "epinki",
+    "Texto": "odio bts",
+    "Rating": 1,
+    "Fecha": "2026-05-20T22:17:42.8600303-06:00"
+  },
+  {
+    "Id": 8,
+    "ItemId": 1,
+    "NombreUsuario": "epinki",
+    "Texto": "el mejor album pero no le gana a al utlimo tour del mundo",
+    "Rating": 5,
+    "Fecha": "2026-05-20T22:18:31.967772-06:00"
+  },
+  {
+    "Id": 9,
+    "ItemId": 2,
+    "NombreUsuario": "epinki",
+    "Texto": "Me gusta pk le gust  ami novia",
+    "Rating": 2,
+    "Fecha": "2026-05-20T22:20:22.3440165-06:00"
+  },
+  {
+    "Id": 10,
+    "ItemId": 3,
+    "NombreUsuario": "epinki",
+    "Texto": "el peor album de kenia os pero tiene buen concepto",
+    "Rating": 2,
+    "Fecha": "2026-05-20T22:20:46.2949847-06:00"
+  }
+]

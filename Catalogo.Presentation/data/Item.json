@@ -5,7 +5,8 @@
     "Genero": "Urbana",
     "Ano": 2025,
     "Formato": "Digital",
-    "Artista": "Bad bunny"
+    "Artista": "Bad bunny",
+    "Comentarios": []
   },
   {
     "Id": 2,
@@ -13,6 +14,34 @@
     "Genero": "Pop",
     "Ano": 2021,
     "Formato": "Vinilo",
-    "Artista": "Olivia Rodrigo"
+    "Artista": "Olivia Rodrigo",
+    "Comentarios": []
+  },
+  {
+    "Id": 3,
+    "Nombre": "K de Karma",
+    "Genero": "Urbana",
+    "Ano": 2025,
+    "Formato": "Digital",
+    "Artista": "Kenia Os",
+    "Comentarios": []
+  },
+  {
+    "Id": 4,
+    "Nombre": "Dinast\u00EDa",
+    "Genero": "Regional mexicana",
+    "Ano": 2024,
+    "Formato": "CD",
+    "Artista": "Peso Pluma, Tito Double P",
+    "Comentarios": []
+  },
+  {
+    "Id": 5,
+    "Nombre": "Arirang",
+    "Genero": "K-Pop",
+    "Ano": 2023,
+    "Formato": "Digital",
+    "Artista": "BTS",
+    "Comentarios": []
   }
 ]

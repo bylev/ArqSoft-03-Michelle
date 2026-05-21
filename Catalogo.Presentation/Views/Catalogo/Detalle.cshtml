@@ -125,12 +125,12 @@
                 <div class="form-group">
                     <label for="rating">Calificación (1-5 estrellas)</label>
                     <div class="rating-input">
-                        <div class="stars-selector">
+                        <div class="stars-selector" id="starsSelector">
                             @for (int i = 1; i <= 5; i++)
                             {
-                                <input type="radio" id="star@i" name="rating" value="@i" />
-                                <label for="star@i" class="star-label">★</label>
+                                <label class="star-label" data-value="@i" title="@i estrella(s)">★</label>
                             }
+                            <input type="hidden" id="ratingInput" name="rating" value="0" />
                         </div>
                     </div>
                 </div>
@@ -189,12 +189,12 @@
     }
 
     .rating-stars {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
 
     .star {
         color: #ddd;
-        font-size: 1.3rem;
+        font-size: 2rem;
     }
 
     .star.filled {
@@ -203,7 +203,7 @@
 
     .star-small {
         color: #ddd;
-        font-size: 0.9rem;
+        font-size: 1.5rem;
     }
 
     .star-small.filled {
@@ -350,21 +350,14 @@
 
     .stars-selector {
         display: flex;
-        gap: 0;
-        font-size: 2rem;
+        flex-direction: row;
+        gap: 0.5rem;
+        font-size: 2.5rem;
+        justify-content: flex-start;
     }
 
     .stars-selector input {
         display: none;
-    }
-
-    .stars-selector input:checked ~ .star-label,
-    .stars-selector label:hover {
-        color: #FFB800;
-    }
-
-    .stars-selector label:hover ~ label {
-        color: inherit;
     }
 
     .star-label {
@@ -372,6 +365,19 @@
         color: #ddd;
         transition: color 0.2s;
         user-select: none;
+    }
+
+    .stars-selector input:checked ~ .star-label {
+        color: #FFB800;
+    }
+
+    .star-label:hover,
+    .star-label:hover ~ .star-label {
+        color: #FFB800;
+    }
+
+    .stars-selector input:checked ~ .star-label:hover {
+        color: #FFB800;
     }
 
     .btn-submit {
@@ -413,3 +419,57 @@
         font-weight: bold;
     }
 </style>
+
+<script>
+    // Script para manejar la selección de estrellas y mantenerla
+    document.addEventListener('DOMContentLoaded', function() {
+        const starLabels = document.querySelectorAll('.star-label');
+        const starInputs = document.querySelectorAll('input[name="rating"]');
+        const starsSelector = document.querySelector('.stars-selector');
+
+        if (starLabels && starsSelector) {
+            // Manejar hover
+            starLabels.forEach((label, index) => {
+                label.addEventListener('mouseenter', function() {
+                    starLabels.forEach((l, i) => {
+                        if (i <= index) {
+                            l.style.color = '#FFB800';
+                        } else {
+                            l.style.color = '#ddd';
+                        }
+                    });
+                });
+            });
+
+            // Restaurar color cuando sale del selector
+            starsSelector.addEventListener('mouseleave', function() {
+                starLabels.forEach((label, index) => {
+                    const checkedInput = document.querySelector('input[name="rating"]:checked');
+                    if (checkedInput) {
+                        const checkedValue = parseInt(checkedInput.value);
+                        if (index < checkedValue) {
+                            label.style.color = '#FFB800';
+                        } else {
+                            label.style.color = '#ddd';
+                        }
+                    } else {
+                        label.style.color = '#ddd';
+                    }
+                });
+            });
+
+            // Manejar clic para seleccionar
+            starInputs.forEach((input, index) => {
+                input.addEventListener('change', function() {
+                    starLabels.forEach((label, i) => {
+                        if (i < parseInt(this.value)) {
+                            label.style.color = '#FFB800';
+                        } else {
+                            label.style.color = '#ddd';
+                        }
+                    });
+                });
+            });
+        }
+    });
+</script></style>
